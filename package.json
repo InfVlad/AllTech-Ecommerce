@@ -8,6 +8,8 @@
     "postinstall": "prisma generate",
     "lint": "next lint",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
     "start": "next start",
     "format": "prettier --write ./src"
   },
