@@ -4,9 +4,14 @@ export default {
   // Add more setup options before each test is run
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   // if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
-  preset: 'ts-jest/presets/js-with-ts',
+  // preset: 'ts-jest/presets/js-with-ts',
   // moduleDirectories: ['node_modules', 'src/'],
   // preset: 'ts-jest/presets/js-with-ts',
+  globals: {
+    'ts-jest': {
+      tsconfig: 'tsconfig.jest.json', // Add this line
+    },
+  },
   testEnvironment: 'jest-environment-jsdom',
   testMatch: ['**/?(*.)test.{ts,tsx}', '!**/?(*.)int.test.{ts,tsx}'],
   // setupFiles: ['./jest.setup.ts'],
@@ -19,6 +24,8 @@ export default {
   },
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.mjs$': 'ts-jest',
+    // '^.+\\.(js|jsx)$': 'babel-jest', // Add this line
   },
 };
 
