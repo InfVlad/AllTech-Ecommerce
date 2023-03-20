@@ -10,5 +10,6 @@ test('hello test', async (): Promise<void> => {
     text: 'test',
   };
   const result = await caller.example.hello(input);
+  console.log('hello from int');
   expect(result).toStrictEqual({ greeting: 'Hello test' });
 });
