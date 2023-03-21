@@ -1,7 +1,7 @@
-import { test, expect } from '@jest/globals';
+import { it, expect } from 'vitest';
 import myFunction from './example';
 
-test('Check ENV test', () => {
+it('Check ENV test', () => {
   const result = myFunction();
   expect(result).toBe('hifromtest');
 });

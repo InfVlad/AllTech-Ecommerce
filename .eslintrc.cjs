@@ -40,6 +40,21 @@ const config = {
         unnamedComponents: 'arrow-function',
       },
     ],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          'test.{ts,tsx}', // repos with a single test file
+          'test-*.{ts,tsx}', // repos with multiple top-level test files
+          '**/*{.,_}{test,spec}.{ts,tsx}', // tests where the extension or filename suffix denotes that it is a test
+          '**/vitest.config.ts',
+          '**/vitest.int.config.ts',
+          '**/vitest.setup.ts',
+          '**/setup-test.ts',
+        ],
+        optionalDependencies: false,
+      },
+    ],
     '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',

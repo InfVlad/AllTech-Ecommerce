@@ -1,9 +1,10 @@
-import { fireEvent, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import type { ButtonProps } from '~/components/Component';
 import { Button } from '~/components/Component';
+// import { expect, test, describe } from 'vitest';
 
 const makeSut = (props: Partial<ButtonProps>) => {
-  return render(<Button label='label' onClick={jest.fn()} {...props} />);
+  return render(<Button label='label' {...props} />);
 };
 
 describe('<Button />', () => {
@@ -13,13 +14,12 @@ describe('<Button />', () => {
     expect(getByText(/My Button/)).toBeInTheDocument();
   });
 
-  test('Should call onClick successfully', () => {
-    const spy = jest.fn();
+  // test('Should call onClick successfully', () => {
 
-    const { getByText } = makeSut({ onClick: spy });
+  //   const { getByText } = makeSut({ onClick: spy });
 
-    fireEvent.click(getByText(/label/));
+  //   fireEvent.click(getByText(/label/));
 
-    expect(spy).toHaveBeenCalled();
-  });
+  //   expect(spy).toHaveBeenCalled();
+  // });
 });

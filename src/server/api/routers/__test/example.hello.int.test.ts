@@ -1,9 +1,9 @@
 import type { inferProcedureInput } from '@trpc/server';
-import { test, expect } from '@jest/globals';
+import { it, expect } from 'vitest';
 import { prisma } from '../../../db';
 import { type AppRouter, appRouter } from '../../root';
 
-test('hello test', async (): Promise<void> => {
+it('hello test', async (): Promise<void> => {
   const caller = appRouter.createCaller({ session: null, prisma });
   type Input = inferProcedureInput<AppRouter['example']['hello']>;
   const input: Input = {
