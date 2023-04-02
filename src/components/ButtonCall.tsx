@@ -1,9 +1,13 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
+interface Data {
+  message: string;
+}
+
 const ButtonCall = () => {
   const handleClick = async () => {
     const res = await fetch('/api/hello');
     console.log(res.status);
-    const data = await res.json();
+    const data = await (res.json() as Promise<Data>);
     console.log(data);
   };
   return (
