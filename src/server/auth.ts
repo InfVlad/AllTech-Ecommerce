@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import type { GetServerSidePropsContext } from 'next';
 import type { NextAuthOptions, DefaultSession } from 'next-auth';
 import { getServerSession } from 'next-auth';

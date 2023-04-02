@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 // import { Radio_Canada } from 'next/font/google';
 // import { SessionProvider } from 'next-auth/react';
+import { TRPCClientProvider } from '~/providers/trpcProvider';
 
 export const metadata = {
   title: 'Organick - Ecommerce',
@@ -26,10 +27,12 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en' className='something'>
-      {/* <SessionProvider> */}
-      <body>{children}</body>
-      {/* </SessionProvider> */}
-    </html>
+    <TRPCClientProvider>
+      <html lang='en' className='something'>
+        {/* <SessionProvider> */}
+        <body>{children}</body>
+        {/* </SessionProvider> */}
+      </html>
+    </TRPCClientProvider>
   );
 }
