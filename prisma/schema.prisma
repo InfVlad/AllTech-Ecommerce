@@ -20,7 +20,7 @@ model Product {
   image       String?
   description String?
   quantity    Int
-  price       Int
+  price       Float
   category    Category    @relation(fields: [categoryId], references: [id])
   categoryId  String
   orderItems  OrderItem[]
@@ -37,9 +37,9 @@ model CartItem {
   product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId String
   quantity  Int
-
-  cart   Cart   @relation(fields: [cartId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  cartId String
+  price     Float
+  cart      Cart    @relation(fields: [cartId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  cartId    String
 
   @@index([productId])
   @@index([cartId])
@@ -61,6 +61,7 @@ model Category {
   image       String
   description String
   createdAt   DateTime  @default(now())
+  updatedAt   DateTime?
   products    Product[]
 }
 
@@ -76,6 +77,8 @@ model OrderItem {
   id        String  @id @default(cuid())
   product   Product @relation(fields: [productId], references: [id])
   productId String
+  price     Float
+  quantity  Int
   order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
   orderId   String
 }
